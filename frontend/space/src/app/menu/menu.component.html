@@ -1,0 +1,23 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class='container'>
+    <span class="navbar-brand">Space flights</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+            <li><a *ngIf="isLoggedIn.isUserLoggedIn()" routerLink="/welcome" class="nav-link">Home</a></li>
+            <li><a *ngIf="isLoggedIn.isUserLoggedIn()" routerLink="/flights" class="nav-link">Flights</a></li>
+            <li><a *ngIf="isLoggedIn.isUserLoggedIn()" routerLink="/tourists" class="nav-link">Tourists</a></li>
+
+      </ul>
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+        <li><a *ngIf="!isLoggedIn.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+        <li><a *ngIf="isLoggedIn.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+</ul>
+    </div>
+    </div>
+  </nav>

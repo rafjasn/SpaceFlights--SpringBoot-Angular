@@ -1,0 +1,44 @@
+<h1> Tourists </h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>gender</th>
+        <th>country
+          <th>remarks</th>
+     
+
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+              <tr *ngFor="let tourist of tourists">
+                <td>{{tourist.id}}</td>
+                <td>{{tourist.firstName}}</td>
+                <td>{{tourist.lastName}}</td>
+                <td>{{tourist.gender}}</td>
+                <td>{{tourist.country}}</td>
+                <td>{{tourist.remarks}}</td>
+                
+                <td>{{tourist.dateOfBirth | date}}</td>
+           
+                <td><button (click)="updateTourist(tourist.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="deleteTourist(tourist.id)" class="btn btn-danger">Delete</button></td>
+              </tr>
+      <!-- } -->
+    </tbody>
+
+  </table>
+
+  <div class="row">
+      <button (click)="addTourist()" class="btn btn-success">Add</button>
+  </div>
+
+</div>

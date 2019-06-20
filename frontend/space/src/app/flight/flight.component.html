@@ -1,0 +1,39 @@
+<H1>Flights</H1>
+
+<div class="container">
+  <div class="alert alert-danger" *ngIf="flightForm.dirty && flightForm.invalid">Enter valid values</div>
+  <div class="alert alert-danger" *ngIf="flightForm.dirty && targetDate.invalid">Enter valid Target Date</div>
+  
+  <form (ngSubmit)="!flightForm.invalid && saveFlight()" #flightForm="ngForm">
+    <fieldset class="form-group">
+      <label>Price</label>
+      <input type="text" #description="ngModel" 
+            [(ngModel)]="flight.price" class="form-control" 
+                name="price" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Number of seats</label>
+      <input type="text" #description="ngModel" 
+            [(ngModel)]="flight.numberOfSeats" class="form-control" 
+                name="numberOfSeats" required="required">
+    </fieldset>
+
+
+    <fieldset class="form-group">
+        <label>Departure Date</label>
+        <input type="date" #targetDate="ngModel"
+        [ngModel]="flight.departureDate | date:'yyyy-MM-dd' "
+        (ngModelChange)="flight.targetDate = $event"
+        class="form-control" name="departureDate" required="required" >
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Arrival Date</label>
+      <input type="date" #targetDate="ngModel"
+      [ngModel]="flight.arrivalDate | date:'yyyy-MM-dd' "
+      (ngModelChange)="flight.targetDate = $event "
+      class="form-control" name="arrivalDate" required="required" >
+  </fieldset>
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>  
+</div>
